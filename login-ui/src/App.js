@@ -3,6 +3,7 @@ import {Provider} from 'react-redux'
 import { legacy_createStore as createStore } from 'redux';
 import {BrowserRouter, Routes, Route } from 'react-router-dom'
 import authController from './Reducer/index'
+import Login from './Components/Login'
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<h1>Teste</h1>}/>
+          <Route path='/' element={<Login/>}/>
         </Routes>
       </BrowserRouter>
     </Provider>
