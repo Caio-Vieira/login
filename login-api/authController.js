@@ -27,8 +27,8 @@ class Login {
     static createUser(req, res){
         const email = req.body.email
         const password = req.body.password
-
         users.push({ id: Login.generateID(), email, password })
+        
        return res.status(200).json(users)
     }
 

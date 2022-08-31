@@ -1,8 +1,13 @@
 const express = require('express')
 const app = express()
 const routes = require('./route')
+const cors = require('cors')
 
-app.use(express.urlencoded({extended:true}))
+const options = {origin:'http://localhost:3000'}
+
+app.use(cors(options))
+
+app.use(express.json())
 
 app.use('/user', routes)
 

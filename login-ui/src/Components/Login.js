@@ -4,15 +4,15 @@ import Action from '../Action/index'
 
 function Login() {
 
-    const [text, setText] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
    
    
     return (
         <div>
-            <input type="text" name="email" onChange={e => setText(e.target.value)} />
+            <input type="text" name="email" onChange={e => setEmail(e.target.value)} />
             <input type="password" name="password" onChange={e => setPassword(e.target.value)}/>
-            <button onClick={()=>{Action({text, password})}}>Login</button>
+            <button onClick={()=>{Action({email, password})}}>Login</button>
         </div>
     );
 }
