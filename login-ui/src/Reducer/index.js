@@ -1,12 +1,10 @@
-function LoginReducer(state = false, action) {
-    switch (action.type) {
-        case 'IS_AUTH':
-            return state = true
-        case 'NOT_AUTH':
-            return state = false
-        default:
-            return state
-    }
-}
+import { combineReducers } from "redux";
+import authReducer from "./authReducer";
+import registerReducer from "./registerReducer";
 
-export default LoginReducer
+const allReducers = combineReducers({
+    auth: authReducer,
+    register: registerReducer
+})
+
+export default allReducers
