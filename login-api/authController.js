@@ -8,14 +8,14 @@ class Login {
     static authUser(req, res) {
         const email = req.body.email
         const password = req.body.password
-        const hasUser = users.filter((item) => {
+        const user = users.filter((item) => {
             return item.email === email
-        })
+        })[0].email
 
-        const hash = jwt.sign({ id: hasUser[0].id, email }, process.env.SECRET_KEY)
+        const hash = jwt.sign({ id: user[0].id, email }, process.env.SECRET_KEY)
 
-        if (hasUser) {
-            return res.status(200).json({hasUser})
+        if (user) {
+            return res.status(200).json({user, hash})
         }
     }
 

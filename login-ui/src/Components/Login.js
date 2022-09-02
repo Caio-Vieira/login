@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { authUser } from '../Action/authUserAction'
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom'
 
 function Login() {
 
     const dispatch = useDispatch()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const { auth, data } = useSelector(state => state.auth)
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        if (auth) {
-            navigate('/home')
-        }
-    }, [data])
 
     return (
         <div>

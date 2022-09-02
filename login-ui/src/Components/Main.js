@@ -1,11 +1,29 @@
-import React from "react";
-import { Outlet, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {authUserAction} from "../Action/authUserAction"
 
 function Main() {
-    const {auth, data} = useSelector(state => state.auth)
+    const {auth} = useSelector(state => state.auth)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const hasUser = JSON.parse(localStorage.getItem("auth"))
+
+    useEffect(()=>{
+        if (hasUser) {
+            dispatch(authUserAction(hasUser))
+        }
+    }, [])
+
+    useEffect(()=>{
+        if(auth){
+            navigate('/home')
+        }
+    }, [auth])
+
+
+
     return (
-        auth ? <Outlet /> :
         <div>
             <nav>
                 <h1>Tela de Login</h1>
@@ -14,7 +32,7 @@ function Main() {
                     <li><Link to="/signUp">Sign Up</Link></li>
                 </ul>
             </nav>
-            <Outlet/>
+            <Outlet />
         </div>
 
     );

@@ -8,7 +8,7 @@ function Home(props) {
 
     return (
         auth ?
-        <h1>{data[0].email}</h1>
+        <h1>Bem vindo {data.user}</h1>
         : <Navigate to="/"/>
     );
 }
