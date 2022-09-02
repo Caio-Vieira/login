@@ -1,15 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import {Navigate, Outlet} from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux";
+import { authUserAction } from "../Action/authUserAction"
 
 function Home(props) {
 
-    const {auth, data} = useSelector(state => state.auth)
+    const {data} = useSelector(state => state.auth)
+    const dispatch = useDispatch()
 
     return (
-        auth ?
-        <h1>Bem vindo {data.user}</h1>
-        : <Navigate to="/"/>
+        <>
+            <h1>Bem vindo {data.hasUser}</h1>
+            <button onClick={()=> dispatch( {type:'CLEAN'} )}>Sair</button>
+        </>
     );
 }
 

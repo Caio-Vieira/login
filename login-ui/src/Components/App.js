@@ -19,10 +19,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Main />} >
-            <Route path='signIn' element={<Login />} />
-            <Route path='signUp' element={<Register />} />
+            <Route path='home' element={<Home />} />
           </Route>
-          <Route path='/home' element={ <Home />} />
+          <Route path='/signIn' element={<Login />} />
+          <Route path='/signUp' element={<Register />} />
         </Routes>
       </BrowserRouter>
     </Provider >
