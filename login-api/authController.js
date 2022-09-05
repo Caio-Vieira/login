@@ -20,9 +20,10 @@ class Login {
     }
 
     static createUser(req, res) {
+        const username = req.body.username
         const email = req.body.email
         const password = req.body.password
-        users.push({ id:Login.generateID(), email, password })
+        users.push({ id:Login.generateID(), username, email, password })
         return res.status(200).json(users)
     }
 

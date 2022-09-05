@@ -12,7 +12,7 @@ export const authUser = (payload) => {
             body: JSON.stringify({ email, password })
         }
 
-        fetch(`http://localhost:3349/user/login`, options).then((res) => {
+        fetch(`http://localhost:3350/user/login`, options).then((res) => {
             return res.json()
         }).then((res) => {
             localStorage.setItem('auth', JSON.stringify(res))            

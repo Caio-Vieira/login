@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
     data: {},
-    auth: true,
+    auth: false,
     loading: false,
     error: false,
 }
@@ -10,7 +10,7 @@ function authReducer(state = INITIAL_STATE, action) {
         case 'IS_AUTH':
             return {...state, auth:true, data:action.payload}
         case 'CLEAN':
-            return {...state, auth:false}
+            return {...state, auth:false, data:{}}
         case 'LOADING_AUTHORIZATION':
             return {...state, loading:true}
         case 'NOT_AUTH':

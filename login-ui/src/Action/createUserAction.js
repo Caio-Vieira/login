@@ -1,4 +1,4 @@
-const createUserAction = (value)=> { return { type:"IS_AUTH", payload: value } }
+const createUserAction = { type:"IS_REGISTRED" } 
 
 export const createUser = (payload) => {
 
@@ -12,8 +12,8 @@ export const createUser = (payload) => {
       body: JSON.stringify({ email, password })
     }
 
-    fetch(`http://localhost:3349/user/register`, options).then((res)=> res.json()).then((res)=>{
-      dispatch(createUserAction(res))
+    fetch(`http://localhost:3350/user/register`, options).then((res)=> res.json()).then((res)=>{
+      dispatch(createUserAction)
     })
   }
 }

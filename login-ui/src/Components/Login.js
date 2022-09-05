@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { authUser } from '../Action/authUserAction'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-
+    
     const dispatch = useDispatch()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        dispatch(authUser({ email:email, password:password }))
+        navigate('/')
+    }
 
     return (
-        <div>
-            <input type="text" name="email" onChange={e => setEmail(e.target.value)} />
-            <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
-            <button onClick={() => dispatch(authUser({ email, password }))}>Login</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <input type="text" name="email" onChange={e => setEmail(e.target.value)} required={true} placeholder="Digite o seu e-mail"/>
+            <input type="password" name="password" onChange={e => setPassword(e.target.value)} required={true} placeholder="Digite a sua senha"/>
+            <button type="submit">Entrar</button>
+        </form>
     );
 }
 

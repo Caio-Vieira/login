@@ -5,7 +5,6 @@ import thunk from 'redux-thunk'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import allReducers from '../Reducer';
 import Main from './Main'
-import Login from './Login'
 import Home from './Home'
 import Register from './Register'
 
@@ -21,8 +20,8 @@ function App() {
           <Route path='/' element={<Main />} >
             <Route path='home' element={<Home />} />
           </Route>
-          <Route path='/signIn' element={<Login />} />
-          <Route path='/signUp' element={<Register />} />
+          <Route path='/signUp' element={<Register />} /> 
+          <Route path='*' element={<Main />} /> 
         </Routes>
       </BrowserRouter>
     </Provider >

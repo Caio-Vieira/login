@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authUserAction } from "../Action/authUserAction"
+import Login from "./Login";
 
 function Main() {
 
-    const { auth, data } = useSelector(state => state.auth)
+    const { auth } = useSelector(state => state.auth)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const hasUser = JSON.parse(localStorage.getItem("auth"))
@@ -17,25 +18,18 @@ function Main() {
     }, [])
 
     useEffect(() => {
-        if (auth) {
-            navigate('/home')
-        }
+        auth ? navigate('/home') : navigate('/')
     }, [auth])
 
     return (
-        <div>
-            <nav>
-                <h1>Tela de Login</h1>
-            </nav>
-            {
-                auth ? <Outlet />
-                    :
-                    <ul>
-                        <li><Link to="/signIn">Sign In</Link></li>
-                        <li><Link to="/signUp">Sign Up</Link></li>
-                    </ul>
+        <>
+            {auth ? <Outlet /> :
+                <div className="container">
+                    <Link to="/signUp">Registrar-se</Link>
+                    <Login />
+                </div>
             }
-        </div>
+        </>
     );
 }
 

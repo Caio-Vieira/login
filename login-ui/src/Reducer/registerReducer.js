@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    data: false,
+    success: false,
     loading: false,
     error: false,
 }
@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 function registerReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case 'IS_REGISTRED':
-            return {...state, data:true}
+            return {...state, success:true}
         case 'LOADING_REGISTRED':
             return {...state, loading:true}
         case 'NOT_REGISTRED':
