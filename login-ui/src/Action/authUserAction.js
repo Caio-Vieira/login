@@ -15,8 +15,14 @@ export const authUser = (payload) => {
         fetch(`http://localhost:3350/user/login`, options).then((res) => {
             return res.json()
         }).then((res) => {
-            localStorage.setItem('auth', JSON.stringify(res))            
-            dispatch(authUserAction(res))
+
+            if (res.message) {
+                dispatch({type:"NOT_AUTH"})
+            }
+            else{
+                localStorage.setItem('auth', JSON.stringify(res))            
+                dispatch(authUserAction(res))
+            }
         })
     }
 }

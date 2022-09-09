@@ -16,7 +16,7 @@ function Home(props) {
 
     return (
         <>
-            <h1>Bem vindo {data.user}</h1>
+            <h1>Bem vindo {data.username}</h1>
             <button onClick={clean}>Sair</button>
         </>
     );

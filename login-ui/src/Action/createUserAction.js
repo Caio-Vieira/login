@@ -1,4 +1,5 @@
 const createUserAction = { type:"IS_REGISTRED" } 
+const createUserActionError = { type:"NOT_REGISTRED" } 
 
 export const createUser = (payload) => {
 
@@ -12,8 +13,13 @@ export const createUser = (payload) => {
       body: JSON.stringify({ email, password })
     }
 
-    fetch(`http://localhost:3350/user/register`, options).then((res)=> res.json()).then((res)=>{
-      dispatch(createUserAction)
+    fetch(`http://localhost:3350/user/register`, options).then((res)=>res).then((res)=>{
+      if (res.status === 200) {
+        dispatch(createUserAction)
+      }else{
+        dispatch(createUserActionError)
+      }
+
     })
   }
 }

@@ -5,12 +5,19 @@ import { useNavigate } from "react-router-dom";
 
 function Register() {
     const dispatch = useDispatch()
+    const [message, setMessage] = useState("")
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
 
-    const { success } = useSelector((state) => state.register)
+    const { success, error } = useSelector((state) => state.register)
+
+    useEffect(() => {
+        if (error) {
+           setMessage("erro")
+        }
+    }, [error])
 
     useEffect(() => {
         if (success) {
@@ -27,6 +34,9 @@ function Register() {
 
     return (
         <div className="container"> 
+
+            {message}
+
             <form onSubmit={handleSubmit}>
                 <input type="text" name="username" onChange={e => setUsername(e.target.value)} placeholder="Digite o nome de usuário" />
                 <input type="email" name="email" onChange={e => setEmail(e.target.value)} placeholder="Digite o seu e-mail"/>
