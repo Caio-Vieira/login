@@ -17,7 +17,7 @@ function Main() {
     }, [])
 
     useEffect(() => {
-        auth ? navigate('/home') : navigate('/signIn')
+        auth ? <Outlet /> : navigate('/signIn')
     }, [auth])
 
     return (
