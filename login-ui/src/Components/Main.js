@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { Outlet, Link, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authUserAction } from "../Action/authUserAction"
-import Login from "./Login";
 
 function Main() {
 
@@ -18,17 +17,12 @@ function Main() {
     }, [])
 
     useEffect(() => {
-        auth ? navigate('/home') : navigate('/')
+        auth ? navigate('/home') : navigate('/signIn')
     }, [auth])
 
     return (
         <>
-            {auth ? <Outlet /> :
-                <div className="container">
-                    <Link to="/signUp">Registrar-se</Link>
-                    <Login />
-                </div>
-            }
+            {auth ? <Outlet /> : <Navigate to="/signIn" />}
         </>
     );
 }

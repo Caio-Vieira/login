@@ -4,7 +4,7 @@ function registerValidate(data) {
 
     const schema = Joi.object({
         username: Joi.string().min(3).max(15).required(),
-        email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+        email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'br'] } }),
         password: Joi.string().min(8).max(15).required()
     })
 
@@ -14,7 +14,7 @@ function registerValidate(data) {
 function loginValidate(data) {
 
     const schema = Joi.object({
-        email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+        email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'br'] } }),
         password: Joi.string().min(8).max(15).required()
     })
 

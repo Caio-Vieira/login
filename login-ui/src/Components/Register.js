@@ -15,7 +15,7 @@ function Register() {
 
     useEffect(() => {
         if (error) {
-           setMessage("erro")
+            setMessage("erro")
         }
     }, [error])
 
@@ -29,20 +29,21 @@ function Register() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(createUser({ email, password }))
+        dispatch(createUser({ username, email, password }))
     }
 
     return (
-        <div className="container"> 
-
+        <div className="container">
             {message}
 
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="username" onChange={e => setUsername(e.target.value)} placeholder="Digite o nome de usuário" />
-                <input type="email" name="email" onChange={e => setEmail(e.target.value)} placeholder="Digite o seu e-mail"/>
-                <input type="password" name="password" onChange={e => setPassword(e.target.value)} placeholder="Digite a sua senha" />
-                <button type="submit">Registrar</button>
-            </form>
+            <div className="box">
+                <form onSubmit={handleSubmit}>
+                    <input type="text" name="username" onChange={e => setUsername(e.target.value)} placeholder="Digite o nome de usuário" />
+                    <input type="email" name="email" onChange={e => setEmail(e.target.value)} placeholder="Digite o seu e-mail" />
+                    <input type="password" name="password" onChange={e => setPassword(e.target.value)} placeholder="Digite a sua senha" />
+                    <button type="submit">Registrar</button>
+                </form>
+            </div>
         </div>
     );
 }
