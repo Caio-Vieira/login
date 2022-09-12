@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { authUser } from '../Action/authUserAction'
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 function Login() {
 
@@ -22,12 +23,12 @@ function Login() {
         <div className="container">
             <div className="box">
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="email" onChange={e => setEmail(e.target.value)} required={true} placeholder="Digite o seu e-mail" />
-                    <input type="password" name="password" onChange={e => setPassword(e.target.value)} required={true} placeholder="Digite a sua senha" />
-                    <button type="submit">Entrar</button>
+                    <input className="mt-3" type="text" name="email" onChange={e => setEmail(e.target.value)} required={true} placeholder="Digite o seu e-mail" />
+                    <input className="mt-3" type="password" name="password" onChange={e => setPassword(e.target.value)} required={true} placeholder="Digite a sua senha" />
+                    <Button className="mt-3" type="submit" variant="primary">Entrar</Button>
                 </form>
             </div>
-            <div className="box">
+            <div>
                 <Link to="/signUp">Criar uma conta</Link>
             </div>
         </div>

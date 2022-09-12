@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 function Home(props) {
 
@@ -15,10 +16,10 @@ function Home(props) {
     }
 
     return (
-        <>
-            <h1>Bem vindo {data.username}</h1>
-            <button onClick={clean}>Sair</button>
-        </>
+        <div className="container">
+            <h1>Bem-vindo {data.username}</h1>
+            <Button className="mt-3" onClick={clean} variant="primary">Sair</Button>
+        </div>
     );
 }
 

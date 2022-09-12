@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { createUser } from '../Action/createUserAction'
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 function Register() {
     const dispatch = useDispatch()
@@ -38,11 +39,15 @@ function Register() {
 
             <div className="box">
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="username" onChange={e => setUsername(e.target.value)} placeholder="Digite o nome de usuário" />
-                    <input type="email" name="email" onChange={e => setEmail(e.target.value)} placeholder="Digite o seu e-mail" />
-                    <input type="password" name="password" onChange={e => setPassword(e.target.value)} placeholder="Digite a sua senha" />
-                    <button type="submit">Registrar</button>
+                    <input className="mt-3" type="text" name="username" onChange={e => setUsername(e.target.value)} placeholder="Digite o seu nome de usuário" />
+                    <input className="mt-3" type="email" name="email" onChange={e => setEmail(e.target.value)} placeholder="Digite o seu e-mail" />
+                    <input className="mt-3" type="password" name="password" onChange={e => setPassword(e.target.value)} placeholder="Digite a sua senha" />
+                    <Button className="mt-3" type="submit" variant="primary">Registrar</Button>
                 </form>
+            </div>
+
+            <div>
+                <Link to="/signIn">Já tenho uma conta</Link>
             </div>
         </div>
     );
