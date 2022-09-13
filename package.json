@@ -1,0 +1,25 @@
+{
+  "name": "login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start_client": "npm start --prefix login-ui",
+    "start_node": "npm start --prefix login-api",
+    "start_dev": "concurrently \"npm run start_node\" \"npm run start_client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Caio-Vieira/Criacao-de-Usuario.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Caio-Vieira/Criacao-de-Usuario/issues"
+  },
+  "homepage": "https://github.com/Caio-Vieira/Criacao-de-Usuario#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
